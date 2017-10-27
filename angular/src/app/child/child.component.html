@@ -1,0 +1,14 @@
+<div class="info-box bg-light-green hover-expand-effect" [class.bg-light-green]="!isOutOfBounds" [class.bg-red]="isOutOfBounds" (click)="show = !show">
+    <div class="icon">
+        <i class="material-icons">face</i>
+    </div>
+    <div class="content">
+        <div class="text">{{child?.name}}&nbsp;
+            <span *ngIf="isOutOfBounds"> - Child is not at home or school! </span>
+        </div>
+        <div class="text">Latitude: {{child?.latitude}} Longitude: {{child?.longitude}}</div>
+    </div>
+</div>
+<div *ngIf="isShown || show">
+    <map [Latitude]="child?.latitude" [Longitude]="child?.longitude"></map>
+</div>

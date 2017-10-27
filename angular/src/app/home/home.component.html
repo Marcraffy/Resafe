@@ -1,0 +1,30 @@
+﻿<div [@routerTransition]>
+
+    <div class="block-header">
+        <h2>Resafe</h2>
+    </div>
+    <div *ngIf="!isParent" class="row clearfix">
+        <div class="col-lg-12">
+            <div class="info-box bg-light-green">
+                <div class="icon">
+                    <i class="material-icons">school</i>
+                </div>
+                <div class="content">
+                    <div class="text">{{children.length}} Children</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <child [child]="child" [isShown]="false" [isOutOfBounds]="true"></child>
+            <div *ngFor="let child of children" >
+                 <child [child]="child" [isShown]="false" [isOutOfBounds]="false"></child>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="isParent" class="row clearfix">
+        <div class="col-lg-12">
+            <child [child]="children[0]" [isShown]="true" [isOutOfBounds]="false"></child>
+            <child [child]="children[1]" [isShown]="true" [isOutOfBounds]="false"></child>
+        </div>
+    </div>
+</div>
